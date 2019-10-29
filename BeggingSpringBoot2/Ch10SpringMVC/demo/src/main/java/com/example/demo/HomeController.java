@@ -21,4 +21,21 @@ public class HomeController {
 //		userRepository.save(user);
 //		return "users";
 //	}
+	@RequestMapping("/")
+	public String home(Model model) {
+		model.addAttribute("message", "SpringBoot + Thymeleaf rocks");
+		return "index";
+	}
+
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginForm(Model model) {
+		model.addAttribute("user", new User());
+		return "login";
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String login(User user, Model model) {
+		System.out.println("Login User: "+user);
+		return "redirect:/";
+	}
 }

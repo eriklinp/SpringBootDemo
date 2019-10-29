@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+<title>User Registration</title>
+</head>
+<body>
+<h3>User Registration Form</h3>
+<form th:action="@{/registration}" th:object="${user" method="post">
+<p th:if="${#fields.hasErrors('global')" th:errors="*{global}"></p>
+
+</form>
+</body>
+</html>
